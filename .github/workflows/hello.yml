@@ -20,11 +20,11 @@ jobs:
       auto-deploy: ${{ steps.check-benchmarks.outputs.benchmark-status }}
     steps:
       - name: Test-Step
-        run: echo "Testing ${{ github.events.inputs.sha || github.sha }}"
+        run: echo "Testing ${{ github.event.inputs.sha || github.sha }}"
       
       - id: check-benchmarks
         run: |
-          echo "benchmark-status=${{github.events.inputs.manual}} >> $GITHUB_OUTPUT
+          echo "benchmark-status=${{ github.event.inputs.manual }} >> $GITHUB_OUTPUT
       
   AutoDeploy:
     name: Auto-Deploy 
