@@ -26,6 +26,14 @@ jobs:
         run: |
           echo "benchmark-status=${{ github.event.inputs.manual }}" >> $GITHUB_OUTPUT
       
+  PrintStatus:
+    name: Print-Deploy-Status 
+    runs-on: ubuntu-latest
+    needs: TestJob
+    steps:
+      - name: Print-Deploy-Status
+        run: echo "${{ needs.TestJob.outputs.auto-deploy }}"
+
   AutoDeploy:
     name: Auto-Deploy 
     runs-on: ubuntu-latest
