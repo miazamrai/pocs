@@ -24,7 +24,7 @@ jobs:
       
       - id: check-benchmarks
         run: |
-          echo "benchmark-status=${{ github.event.inputs.manual }} >> $GITHUB_OUTPUT
+          echo "benchmark-status=${{ github.event.inputs.manual }}" >> $GITHUB_OUTPUT
       
   AutoDeploy:
     name: Auto-Deploy 
