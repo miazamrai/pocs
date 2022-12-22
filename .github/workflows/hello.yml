@@ -2,6 +2,10 @@ name: Test Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      sha:
+        description: commit to be deployed
+        required: false
   
 jobs:
   TestJob:
@@ -9,4 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test-Step
-        run: echo "Testing ${{ github.sha }}"
+        run: echo "Testing ${{ github.events.inputs.sha || github.sha }}"
+      
