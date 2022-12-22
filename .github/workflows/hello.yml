@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   
 jobs:
-  test:
-    name: Test job
-    run: echo "Test ${{ github.sha }}
+  TestJob:
+    name: Test-Job 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test-Step
+        run: echo "Testing ${{ github.sha }}"
